@@ -6,75 +6,84 @@ const trueArray=[];
 smallGlass.forEach((k,id)=>{
     k.addEventListener("click",()=>drinkWater(id))
 });
+        
 function drinkWater(id){
     glassDiv.addEventListener("click",(event)=>{
-    if(event.target.classList.contains("glass")){
-        console.log("id",id);
-        console.log("indexof",falseArray.indexOf(id));
-        if(falseArray.indexOf(id)>-1){
-            console.log("HİÇ YOKTUM BOYADIM");
-        const glass=event.target.setAttribute("style","background-color:#337CCF;width:4rem; height:5rem; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; box-shadow: rgba(0, 0, 0, 0.553) 1.95px 1.95px 2.6px; color:white;  border: none; font-family: 'ADLaM Display';font-size: 1rem;");
-        if(trueArray.length==0){
-            trueArray.push(id);
-            delete falseArray[id];
-            console.log("FALSE ARRAY",falseArray);
-
-        }
-        else if(trueArray.indexOf(id)==-1){
-            trueArray.push(id);
-            delete falseArray[id];
-            console.log("FALSE ARRAY",falseArray);
-
-        }
-        }
-        else if(trueArray.indexOf(id)>-1){
-            console.log("BOYALIYDIM ESKİYE DÖNDÜM");
-        const glass=event.target.setAttribute("style","background-color:#d5f4ee6c;width:4rem; height:5rem; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; box-shadow: rgba(0, 0, 0, 0.553) 1.95px 1.95px 2.6px; color:black;  border: none; font-family: 'ADLaM Display';font-size: 1rem;");
-        const filteredArray = falseArray.filter(function (element) {
+        const filteredFalseArray = falseArray.filter(function (element) {
             return element !== undefined;
             });
-        if(filteredArray.length==0){
-            falseArray.push(id);
-            delete trueArray[id];
-            console.log("FALSE ARRAY",falseArray);
+            // console.log("filtered false array",filteredFalseArray);
+         const filteredTrueArray = trueArray.filter(function (element) {
+            return element !== undefined;
+            });
+        if(event.target.classList.contains("glass")){
+            console.log("id",id);
+            if(filteredFalseArray.indexOf(id)>-1){
+                console.log("HİÇ YOKTUM BOYADIM");
+                const glass=event.target.setAttribute("style","background-color:#337CCF;width:4rem; height:5rem; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; box-shadow: rgba(0, 0, 0, 0.553) 1.95px 1.95px 2.6px; color:white;  border: none; font-family: 'ADLaM Display';font-size: 1rem;");
+            if(filteredTrueArray.length==0){
+                console.log("+++++++++++");
+                filteredTrueArray.push(id);
+                trueArray.push(id);
+                console.log("FİLTERED TRUE ARRAY",filteredTrueArray);
+                console.log("TRUE ARRAY",trueArray);
+                delete filteredFalseArray[filteredFalseArray.indexOf(id)];
+                delete falseArray[falseArray.indexOf(id)];
+                console.log("FİLTERED FALSE ARRAY",filteredFalseArray);
+                console.log("FALSE ARRAY",falseArray);
+                console.log("+++++++++++");
 
-        }
-        else if(filteredArray.indexOf(id)==-1){
-            falseArray.push(id);
-            delete trueArray[id];
-            console.log("FALSE ARRAY",falseArray);
+            }
+            else if(filteredTrueArray.indexOf(id)==-1){
+                console.log("------------");
+                filteredTrueArray.push(id);
+                trueArray.push(id);
+                console.log("FİLTERED TRUE ARRAY",filteredTrueArray);
+                console.log("TRUE ARRAY",trueArray);
+                delete filteredFalseArray[filteredFalseArray.indexOf(id)];
+                delete falseArray[falseArray.indexOf(id)];
+                console.log("FİLTERED FALSE ARRAY",filteredFalseArray);
+                console.log("FALSE ARRAY",falseArray);
+                console.log("------------");
 
-        }
-        }
-        
-        
-        // if(trueArray.length==0){
-        //     trueArray.push(id);
-        //     delete falseArray[id];
-        //     console.log("FALSE ARRAY",falseArray);
+            }
+            }
+            else if(filteredTrueArray.indexOf(id)>-1){
+                
+            
+            // if(filteredFalseArray.length==0){
+            //     console.log("**************");
+            //     filteredFalseArray.push(id);
+            //     falseArray.push(id);
+            //     console.log("FİLTERED FALSE ARRAY",filteredFalseArray);
+            //     console.log("FALSE ARRAY",falseArray);
+            //     delete filteredTrueArray[filteredTrueArray.indexOf(id)];
+            //     delete trueArray[trueArray.indexOf(id)];
+            //     console.log("FİLTERED TRUE ARRAY",filteredTrueArray);
+            //     console.log("TRUE ARRAY",trueArray);
+            //     console.log("**************");
+                
 
-        // }
-        // else if(trueArray.indexOf(id)==-1){
-        //     trueArray.push(id);
-        //     delete falseArray[id];
-        //     console.log("FALSE ARRAY",falseArray);
+            // }
+                if(filteredFalseArray.indexOf(id)==-1){
+                    const glass=event.target.setAttribute("style","background-color:#d5f4ee6c;width:4rem; height:5rem; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; box-shadow: rgba(0, 0, 0, 0.553) 1.95px 1.95px 2.6px; color:black;  border: none; font-family: 'ADLaM Display';font-size: 1rem;");
+                    console.log(".................");
+                    console.log("BOYALIYDIM ESKİYE DÖNDÜM");
+                    filteredFalseArray.push(id);
+                    falseArray.push(id);
+                    console.log("FİLTERED FALSE ARRAY",filteredFalseArray);
+                    console.log("FALSE ARRAY",falseArray);
+                    delete filteredTrueArray[filteredTrueArray.indexOf(id)];
+                    delete trueArray[trueArray.indexOf(id)];
+                    console.log("FİLTERED TRUE ARRAY",filteredTrueArray);
+                    console.log("TRUE ARRAY",trueArray);
+                    
+                    console.log(".................");
+                }
+            }
 
-        // }
-        // if(falseArray.length==0){
-        //     falseArray.push(id);
-        //     delete trueArray[id];
-        //     console.log("FALSE ARRAY",falseArray);
-
-        // }
-        // else if(falseArray.indexOf(id)==-1){
-        //     falseArray.push(id);
-        //     delete trueArray[id];
-        //     console.log("FALSE ARRAY",falseArray);
-
-        // }
-        console.log("TRUE ARRAY",trueArray.sort());
     }
-    // console.log("girmiyom ki");
+
 })
 }
 
