@@ -53,7 +53,7 @@ function drinkWater(id){
                     }
             }
             else if(filteredTrueArray.indexOf(id)>-1){
-                if(filteredFalseArray.indexOf(id)==-1){
+                if(filteredTrueArray.indexOf(id)>-1){
                     const glass=event.target.setAttribute("style","background-color:#d5f4ee6c;width:4rem; height:5rem; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; box-shadow: rgba(0, 0, 0, 0.553) 1.95px 1.95px 2.6px; color:black;  border: none; font-family: 'ADLaM Display';font-size: 1rem;");
                     console.log(".................");
                     console.log("BOYALIYDIM ESKİYE DÖNDÜM");
